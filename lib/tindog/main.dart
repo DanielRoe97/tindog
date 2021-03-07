@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Colors, Column, FloatingActionButton, Icon, Icons, Key, MainAxisAlignment, MaterialApp, Scaffold, State, StatefulWidget, StatelessWidget, Text, Theme, ThemeData, VisualDensity, Widget, runApp;
 import 'package:flutter/material.dart';
@@ -11,13 +12,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
 
-        primarySwatch: Colors.blue,
-
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -52,59 +47,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  int currentIndex=0;
-  final tabs = [
-    Center(child: Text('Home')),
-    Center(child: Text('Search')),
-    Center(child: Text('Camera')),
-    Center(child: Text('Person')),
-  ];
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
+      backgroundColor: Colors.green,
 
-        title: Text(widget.title),
-      ),
-      body: tabs[currentIndex],
-
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        iconSize: 30,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-            backgroundColor: Colors.blue
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              title: Text('Search'),
-              backgroundColor: Colors.red
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.camera),
-              title: Text('Camera'),
-              backgroundColor: Colors.lightGreenAccent
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              title: Text('Person'),
-              backgroundColor: Colors.yellow
-          ),
+      bottomNavigationBar: CurvedNavigationBar(
+          color: Colors.white,
+          backgroundColor: Colors.green,
+          buttonBackgroundColor: Colors.white ,
+        items: <Widget>[
+          Icon(Icons.verified_user,size: 20, color: Colors.black),
+          Icon(Icons.add,size: 20, color: Colors.black),
+          Icon(Icons.list,size: 20, color: Colors.black),
         ],
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+        onTap: (index){
+          debugPrint("Current Index is $index");
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
