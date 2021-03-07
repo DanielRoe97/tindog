@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Irgendwas'),
     );
   }
 }
@@ -33,10 +33,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _Liste createState() => _Liste();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Liste extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -57,15 +57,27 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.white,
           backgroundColor: Colors.green,
           buttonBackgroundColor: Colors.white ,
+          height: 50,
         items: <Widget>[
           Icon(Icons.verified_user,size: 20, color: Colors.black),
           Icon(Icons.add,size: 20, color: Colors.black),
+          Icon(Icons.search,size: 20, color: Colors.black),
+          Icon(Icons.favorite,size: 20, color: Colors.black),
           Icon(Icons.list,size: 20, color: Colors.black),
-        ],
+            ],
+        animationDuration: Duration(
+            milliseconds: 200
+        ),
+        index: 2,
+        animationCurve: Curves.bounceInOut,
         onTap: (index){
           debugPrint("Current Index is $index");
         },
+
       ),
     );
   }
 }
+
+
+
