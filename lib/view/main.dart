@@ -53,7 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: <Widget>[
             Icon(Icons.verified_user,size: 20, color: Colors.black),
             Icon(Icons.add,size: 20, color: Colors.black),
-            Icon(Icons.search,size: 20, color: Colors.black),
+            Icon(Icons.search,size: 50, color: Colors.black),
             Icon(Icons.favorite,size: 20, color: Colors.black),
             Icon(Icons.list,size: 20, color: Colors.black),
           ],
