@@ -8,7 +8,10 @@ import 'package:tindog/tindog/pageone.dart';
 import 'package:tindog/tindog/pagethree.dart';
 import 'package:tindog/tindog/pagetwo.dart';
 
-void main() => runApp(MaterialApp(home: BottomNavBar()));
+void main() => runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: BottomNavBar())
+);
 
 class BottomNavBar extends StatefulWidget {
   @override
