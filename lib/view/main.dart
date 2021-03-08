@@ -2,11 +2,11 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show AppBar, BuildContext, Center, Colors, Column, FloatingActionButton, Icon, Icons, Key, MainAxisAlignment, MaterialApp, Scaffold, State, StatefulWidget, StatelessWidget, Text, Theme, ThemeData, VisualDensity, Widget, runApp;
 import 'package:flutter/material.dart';
-import 'package:tindog/tindog/pagefive.dart';
-import 'package:tindog/tindog/pagefour.dart';
-import 'package:tindog/tindog/pageone.dart';
-import 'package:tindog/tindog/pagethree.dart';
-import 'package:tindog/tindog/pagetwo.dart';
+import 'package:tindog/view/pagefive.dart';
+import 'package:tindog/view/pagefour.dart';
+import 'package:tindog/view/pageone.dart';
+import 'package:tindog/view/pagethree.dart';
+import 'package:tindog/view/pagetwo.dart';
 
 void main() => runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
