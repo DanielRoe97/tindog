@@ -7,6 +7,7 @@ import 'package:tindog/view/pagefour.dart';
 import 'package:tindog/view/pageone.dart';
 import 'package:tindog/view/pagethree.dart';
 import 'package:tindog/view/pagetwo.dart';
+import 'package:flutter_tindercard/flutter_tindercard.dart';
 
 void main() => runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
