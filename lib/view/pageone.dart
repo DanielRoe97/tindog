@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tindog/model/database.dart';
+import 'package:tindog/model/dog.dart';
 
-
+Dog dog = getRandomDog();
+String imgURL = dog.imageURL;
 
 
 class Pageone extends StatefulWidget {
@@ -18,7 +21,7 @@ class _PageoneState extends State<Pageone> {
           child: Center(
 
 
-            child: new Text("1. Seite"),
+            child: new Text(getRandomDog().name),
 
           ),
         )
