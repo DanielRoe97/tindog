@@ -12,11 +12,13 @@ import 'package:flutter_tindercard/flutter_tindercard.dart';
 void main() => runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: BottomNavBar())
+
 );
 
 class BottomNavBar extends StatefulWidget {
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
+
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
