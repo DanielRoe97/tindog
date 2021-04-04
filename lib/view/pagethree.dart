@@ -1,10 +1,14 @@
-import 'dart:html';
 
+import 'dart:ui';
+
+import 'package:tindog/model/dog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
+import 'package:tindog/model/database.dart';
 
 
-
+Dog dog = getRandomDog();
+String imgURL = dog.imageURL;
 
 class Pagethree extends StatefulWidget {
   @override
@@ -15,15 +19,19 @@ class Pagethree extends StatefulWidget {
 
 class _PagethreeState extends State<Pagethree> {
 
-  List<String>  platzhalter = [
 
+
+  List<String>  _getDoge = [
   ];
   @override
   Widget build(BuildContext context) {
+    CardController controller;
     return new Scaffold(
 
         body: new Container(
+
           color: Colors.green,
+             /* height: MediaQuery.of(context).size.height*0.7,*/
           child: TinderSwapCard(
             orientation: AmassOrientation.BOTTOM,
             totalNum: 6,
@@ -34,12 +42,21 @@ class _PagethreeState extends State<Pagethree> {
             minHeight: MediaQuery.of(context).size.width*0.8,
             minWidth: MediaQuery.of(context).size.width*0.8,
             cardBuilder: (context, index) => Card(
-              child: Image.asset('${platzhalter[index]}'),
 
+              child: Image.network(
+                  dog.imageURL,
+                  fit: BoxFit.cover,
+
+              ),
             ),
-            
+            cardController: controller = CardController(),
+            swipeUpdateCallback: (DragUpdateDetails details, Alignment align){
+                if (align.x <0){
+                }else if (align.x >0){}
+            },
+            swipeCompleteCallback: (CardSwipeOrientation orientation , int index){
 
-          ),
+          }),
         )
     );
   }
