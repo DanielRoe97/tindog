@@ -1,6 +1,5 @@
 
 import 'dart:ui';
-
 import 'package:tindog/model/dog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
@@ -9,6 +8,7 @@ import 'package:tindog/model/database.dart';
 
 Dog dog = getRandomDog();
 String imgURL = dog.imageURL;
+String name = dog.name;
 
 class Pagethree extends StatefulWidget {
   @override
@@ -41,23 +41,52 @@ class _PagethreeState extends State<Pagethree> {
             maxHeight: MediaQuery.of(context).size.width*0.9,
             minHeight: MediaQuery.of(context).size.width*0.8,
             minWidth: MediaQuery.of(context).size.width*0.8,
+
             cardBuilder: (context, index) => Card(
 
-              child: Image.network(
-                  dog.imageURL,
-                  fit: BoxFit.cover,
+              child: Image.network(dog.imageURL, fit: BoxFit.cover ),
 
-              ),
             ),
             cardController: controller = CardController(),
             swipeUpdateCallback: (DragUpdateDetails details, Alignment align){
                 if (align.x <0){
                 }else if (align.x >0){}
             },
-            swipeCompleteCallback: (CardSwipeOrientation orientation , int index){
+            swipeCompleteCallback: (CardSwipeOrientation orientation , int index){}
 
-          }),
+
+          ),
+
         )
+
     );
   }
+
 }
+Widget buildUserInfo({@required dog.name user}) => Padding(
+  padding: const EdgeInsets.all(8),
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text(
+        '${user.name}, ${user.age}',
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
+      ),
+      SizedBox(height: 8),
+      Text(
+        user.designation,
+        style: TextStyle(color: Colors.white),
+      ),
+      SizedBox(height: 4),
+      Text(
+        '${user.mutualFriends} Mutual Friends',
+        style: TextStyle(color: Colors.white),
+      )
+    ],
+  ),
+);
