@@ -4,11 +4,13 @@ import 'package:tindog/model/dog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tindog/model/database.dart';
-
+import 'package:tindog/view/dog.dart';
 
 Dog dog = getRandomDog();
 String imgURL = dog.imageURL;
 String name = dog.name;
+
+
 
 class Pagethree extends StatefulWidget {
   @override
@@ -63,29 +65,19 @@ class _PagethreeState extends State<Pagethree> {
   }
 
 }
-Widget buildUserInfo({@required dog.name user}) => Padding(
+Widget buildUserInfo({@required name}) => Padding(
   padding: const EdgeInsets.all(8),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisSize: MainAxisSize.min,
     children: [
       Text(
-        '${user.name}, ${user.age}',
+        '${dog.name}',
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
-      ),
-      SizedBox(height: 8),
-      Text(
-        user.designation,
-        style: TextStyle(color: Colors.white),
-      ),
-      SizedBox(height: 4),
-      Text(
-        '${user.mutualFriends} Mutual Friends',
-        style: TextStyle(color: Colors.white),
       )
     ],
   ),
