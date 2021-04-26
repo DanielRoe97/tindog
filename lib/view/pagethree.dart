@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tindog/model/database.dart';
 
+//Global Variablen (Bleiben gleich, hier kann man Informationen speichern)
 
-Dog dog = getRandomDog();
-String imgURL = dog.imageURL;
+Dog dog = getRandomDog(); //Soll ersetzt werden
+String imgURL = dog.imageURL; // Soll ersetzt werden
+
+List<Dog> dogs = getDogList(); // Soll implementiret werden
 
 class Pagethree extends StatefulWidget {
   @override
@@ -20,9 +23,8 @@ class Pagethree extends StatefulWidget {
 class _PagethreeState extends State<Pagethree> {
 
 
+//Local Variablen
 
-  List<String>  _getDoge = [
-  ];
   @override
   Widget build(BuildContext context) {
     CardController controller;
