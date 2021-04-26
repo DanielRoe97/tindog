@@ -1,16 +1,14 @@
 
 import 'dart:ui';
+
 import 'package:tindog/model/dog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tindog/model/database.dart';
-import 'package:tindog/view/dog.dart';
+
 
 Dog dog = getRandomDog();
 String imgURL = dog.imageURL;
-String name = dog.name;
-
-
 
 class Pagethree extends StatefulWidget {
   @override
@@ -36,49 +34,78 @@ class _PagethreeState extends State<Pagethree> {
              /* height: MediaQuery.of(context).size.height*0.7,*/
           child: TinderSwapCard(
             orientation: AmassOrientation.BOTTOM,
-            totalNum: 6,
-            stackNum: 4,
+            totalNum: 10,
+            stackNum: 10,
             swipeEdge: 4.0,
             maxWidth: MediaQuery.of(context).size.width*0.9,
             maxHeight: MediaQuery.of(context).size.width*0.9,
             minHeight: MediaQuery.of(context).size.width*0.8,
             minWidth: MediaQuery.of(context).size.width*0.8,
-
             cardBuilder: (context, index) => Card(
 
-              child: Image.network(dog.imageURL, fit: BoxFit.cover ),
+              child: Stack(
+                children: <Widget>[
 
+                  Container(
+                    child: Image.network(
+                      dog.imageURL,
+                      fit: BoxFit.cover,
+                    ),
+                    height: double.infinity, //Damit alles ausgefüllt ist
+                  ),
+
+                  Container( //Dieser Container ist nur für den Farbverlauf
+                    height: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        gradient: LinearGradient(
+                            begin: FractionalOffset.topCenter,
+                            end: FractionalOffset.bottomCenter,
+                            colors: [
+                              Colors.grey.withOpacity(0.0),
+                              Colors.black.withOpacity(0.5),
+                            ],
+                            stops: [
+                              0.0,
+                              1.0
+                            ])),
+                  ),
+
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.all(10.0),
+                    height: double.infinity,
+                    child: Column(
+
+                      children:[
+                        Text(
+                          dog.name,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(color: Colors.white70, fontSize: 30.0),
+                        ),
+                        Text(
+                          'Rasse/Alter',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(color: Colors.white70, fontSize: 10.0),
+                        ),
+                      ]
+
+                    )
+                  ),
+                ],
+              ),
             ),
             cardController: controller = CardController(),
             swipeUpdateCallback: (DragUpdateDetails details, Alignment align){
                 if (align.x <0){
                 }else if (align.x >0){}
             },
-            swipeCompleteCallback: (CardSwipeOrientation orientation , int index){}
+            swipeCompleteCallback: (CardSwipeOrientation orientation , int index){
 
-
-          ),
-
+          }),
         )
-
     );
   }
-
 }
-Widget buildUserInfo({@required name}) => Padding(
-  padding: const EdgeInsets.all(8),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Text(
-        '${dog.name}',
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
-      )
-    ],
-  ),
-);
+
+
